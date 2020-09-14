@@ -10,7 +10,7 @@ class RegisterForm(forms.ModelForm):
     last_name   = forms.CharField(label='Last Name :', widget=forms.TextInput(attrs={"placeholder": "Your Last Name"}))
     email       = forms.EmailField(label="Eamil Adress :", max_length=254, widget=forms.TextInput(attrs={"placeholder": "Your Email"}))
     # gender      = forms.ChoiseField(max_length= 1 , choices=GENDER_CHIOSE)
-    age         = forms.DecimalField(label='Age :')
+    age         = forms.DecimalField(label='Age :', widget=forms.TextInput(attrs={"placeholder": "Age"}))
     class Meta:
         model = UserRegister
         fields = [
