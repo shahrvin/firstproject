@@ -1,0 +1,21 @@
+version: "3" 
+
+services:
+  blogpy_postgresql:
+    image: postgres:12
+    container_name: trydjango
+    volumes:
+      - trydjango:/var/lib/postgresql/data
+    restart: always
+    env_file: .env
+    ports:
+      - "4040:5432"
+    networks:
+      - djangonetwork
+
+volumes:
+  trydjango:
+    external: true 
+networks:
+  djangonetwork:
+    external: true
