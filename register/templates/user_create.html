@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% load bootstrap3 %}
 
 <form action='.' method='POST'>{% csrf_token %}
     {{ form.as_p }}
+    
     <input type='submit' value='Save' />
 </form>
+<br>
+{% if request.user.is_authenticated %}
+    <p class='text-info'>
+    {{ new }}
+    </p>
+{% endif %}
 
-
-
-
+{% if request.user.is_authenticated %}
+<a class='btn btn-success' href='/admin' >
+admin section
+</a>
+{% endif %}
 {% endblock %}
